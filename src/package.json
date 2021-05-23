@@ -1,5 +1,5 @@
 {
-  "name": "daniel-bailey-t2-a2",
+  "name": "src",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
