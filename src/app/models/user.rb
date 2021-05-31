@@ -1,4 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :role
-  has_many :companies, dependent: :destroy
+    has_many :companies, dependent: :destroy
+    has_many :user_roles, dependent: :destroy
+    has_many :roles, through: :user_roles
 end

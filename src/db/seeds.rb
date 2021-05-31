@@ -6,48 +6,35 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Array of all of the information to be used for testing
-roles = [
+users = [
     {
-        name: "Entrepreneur",
-        users: [
-            User.new(
-                first_name: "Dan",
-                last_name: "Bailey",
-                companies: [
-                    Company.new(name: "Helsinki", location: "Sydney", price: 3000),
-                    Company.new(name: "Mafiano", price: 5000),
-                    Company.new(name: "Synera", location: "Adelaide", price: 2000)
-                ]
-            ),
-            User.new(
-                first_name: "Yuusuke",
-                last_name: "Nagata",
-                companies: [
-                    Company.new(name: "Monster-Plex", location: "Brisbane", price: 1000)
-                ]
-            ),
-            User.new(
-                first_name: "Anthony",
-                last_name: "Beck",
-                companies: [
-                    Company.new(name: "Shopcorn", location: "Brisbane", price: 1000),
-                    Company.new(name: "GrocerHQ", location: "Brisbane", price: 3000)
-                ]
-            )
+        first_name: "Daniel",
+        last_name: "Bailey",
+        role: "Entrepreneur"
+        companies: [
+            Company.new(name: "Grocerly"),
+            Company.new(name: "Foodler")
         ]
     },
     {
-        name: "Investor",
-        users: [
-            User.new(first_name: "Brayden", last_name: "O'Gorman"),
-            User.new(first_name: "Jack", last_name: "McKeown")
+        first_name: "Josh",
+        last_name: "Brown",
+        role: "Entrepreneur",
+        companies: [
+            Company.new(name: "Goblimp")
         ]
+    },
+    {
+        first_name: "Tyson",
+        last_name: "Anderson",
+        role: "Investor"
+    },
+    {
+        first_name: "Jimi",
+        last_name: "Hendrix",
+        role: "Investor"
     }
 ]
 
-# Removes all of the current roles in the system, which will also remove the dependents i.e. users and companies
-Role.destroy_all
-
-# Seeds the database with the above array
-Role.create(roles)
+User.destroy_all
+User.create(users)
