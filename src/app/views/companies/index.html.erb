@@ -4,6 +4,13 @@
     <tr>
         <th>Name</th>
         <th>Owner</th>
-        
+        <th>Cost</th>
     </tr>
+    <% @companies.each do |company| %>
+        <tr>
+            <td><%= company.name %></td>
+            <td><%= "#{company.user.first_name} #{company.user.last_name}" %></td>
+            <td><%= company.cost %></td>
+        </tr>
+    <% end %>
 </table>

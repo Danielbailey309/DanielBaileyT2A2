@@ -6,11 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Role.destroy_all
+entrepreneur = Role.create(name: "Entrepreneur")
+investor = Role.create(name: "Investor")
+administrator = Role.create(name: "Administrator")
+
 users = [
     {
         first_name: "Daniel",
         last_name: "Bailey",
-        role: "Entrepreneur"
+        roles: [entrepreneur],
         companies: [
             Company.new(name: "Grocerly"),
             Company.new(name: "Foodler")
@@ -19,20 +24,20 @@ users = [
     {
         first_name: "Josh",
         last_name: "Brown",
-        role: "Entrepreneur",
+        roles: [investor],
         companies: [
-            Company.new(name: "Goblimp")
+            Company.new(name: "Goblimp", cost: 5000)
         ]
     },
     {
         first_name: "Tyson",
         last_name: "Anderson",
-        role: "Investor"
+        roles: [entrepreneur, investor]
     },
     {
         first_name: "Jimi",
         last_name: "Hendrix",
-        role: "Investor"
+        roles: [administrator]
     }
 ]
 
