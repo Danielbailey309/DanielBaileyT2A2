@@ -8,8 +8,8 @@
     </tr>
     <% @companies.each do |company| %>
         <tr>
-            <td><%= company.name %></td>
-            <td><%= "#{company.user.first_name} #{company.user.last_name}" %></td>
+            <td><%= link_to company.name, company_path(company) %></td>
+            <td><%= company.user.full_name %></td>
             <td><%= company.cost %></td>
         </tr>
     <% end %>

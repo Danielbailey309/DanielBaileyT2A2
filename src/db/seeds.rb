@@ -13,28 +13,32 @@ administrator = Role.create(name: "Administrator")
 
 users = [
     {
+        # Default entrepreneur
         first_name: "Daniel",
         last_name: "Bailey",
         roles: [entrepreneur],
         companies: [
-            Company.new(name: "Grocerly"),
-            Company.new(name: "Foodler")
+            Company.new(name: "Grocerly", cost: 2000),
+            Company.new(name: "Foodler", cost: 1000)
         ]
     },
     {
+        # Default entrepreneur and investor
         first_name: "Josh",
         last_name: "Brown",
-        roles: [investor],
+        roles: [entrepreneur, investor],
         companies: [
             Company.new(name: "Goblimp", cost: 5000)
         ]
     },
     {
+        # Default investor
         first_name: "Tyson",
         last_name: "Anderson",
-        roles: [entrepreneur, investor]
+        roles: [investor]
     },
     {
+        # Default admin
         first_name: "Jimi",
         last_name: "Hendrix",
         roles: [administrator]

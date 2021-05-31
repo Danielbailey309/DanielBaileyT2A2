@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Src</title>
+    <title>Whale Tank</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,17 @@
   </head>
 
   <body>
+    <header>
+      <figure>
+        <img src="https://picsum.photos/50" alt="Whale Tank Logo">
+        <figcaption>Whale Tank</figcaption>
+      </figure>
+      <nav>
+        <span><%= link_to "Home", root_path %></span>
+        <span><%= link_to "Companies", companies_path %></span>
+        <span><%= link_to "Users", users_path %></span>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

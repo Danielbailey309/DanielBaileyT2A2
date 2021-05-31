@@ -1,0 +1,5 @@
+<h2><%= @company.name %></h2>
+<h3>Proposed by <%= @company.user.full_name %></h3>
+<p><strong>Cost: </strong>$<%= @company.cost %></p>
+<hr>
+<p><%= link_to "<< Back", :back %></p>
