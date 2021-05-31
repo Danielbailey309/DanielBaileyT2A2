@@ -14,8 +14,14 @@ class CompaniesController < ApplicationController
     end
 
     def create
-        @company = Company.create(company_params)
-        redirect_to @company
+        @users = User.order(:last_name)
+        @company = Company.new(company_params)
+        if @company.save
+            redirect_to @company
+        else
+            flash.now[:errors] = @company.errors.full_messages
+            render action: 'new'
+        end
     end
 
     def edit
