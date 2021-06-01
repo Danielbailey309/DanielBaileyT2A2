@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+    before_action :authenticate_member!, except: [:index, :show]
     before_action :set_company, only: [:update, :show, :destroy, :edit]
     before_action :set_users, only: [:new, :edit, :create, :update]
 

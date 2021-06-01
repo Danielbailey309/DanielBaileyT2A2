@@ -1,23 +1,30 @@
 <h1>List Companies</h1>
 
-<p><%= link_to "New Company", new_company_path %></p>
+<% if member_signed_in? %>
+    <p><%= link_to "New Company", new_company_path %></p>
+<% end %>
+
 <table>
     <tr>
         <th>Name</th>
         <th>Owner</th>
         <th>Cost</th>
-        <th>Actions</th>
+        <% if member_signed_in? %>
+            <th>Actions</th>
+        <% end %>    
     </tr>
     <% @companies.each do |company| %>
         <tr>
             <td><%= link_to company.name, company_path(company) %></td>
             <td><%= company.user.full_name %></td>
             <td><%= company.cost %></td>
-            <td>
-                <%= link_to "Edit", edit_company_path(company) %>
-                 | 
-                <%= link_to "Delete", company, method: :delete, data: { confirm: "Are you sure you want to remove this company?" } %>
-            </td>
+            <% if member_signed_in? %>
+                <td>
+                    <%= link_to "Edit", edit_company_path(company) %>
+                    | 
+                    <%= link_to "Delete", company, method: :delete, data: { confirm: "Are you sure you want to remove this company?" } %>
+                </td>
+            <% end %>
         </tr>
     <% end %>
 </table>
