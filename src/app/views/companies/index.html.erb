@@ -1,16 +1,23 @@
 <h1>List Companies</h1>
 
+<p><%= link_to "New Company", new_company_path %></p>
 <table>
     <tr>
         <th>Name</th>
         <th>Owner</th>
         <th>Cost</th>
+        <th>Actions</th>
     </tr>
     <% @companies.each do |company| %>
         <tr>
             <td><%= link_to company.name, company_path(company) %></td>
             <td><%= company.user.full_name %></td>
             <td><%= company.cost %></td>
+            <td>
+                <%= link_to "Edit", edit_company_path(company) %>
+                 | 
+                <%= link_to "Delete", company, method: :delete, data: { confirm: "Are you sure you want to remove this company?" } %>
+            </td>
         </tr>
     <% end %>
 </table>

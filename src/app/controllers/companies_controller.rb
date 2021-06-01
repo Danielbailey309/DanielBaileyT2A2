@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
     before_action :set_company, only: [:update, :show, :destroy, :edit]
+    before_action :set_users, only: [:new, :edit, :create, :update]
 
     def index
         @companies = Company.order(:name)
@@ -10,11 +11,9 @@ class CompaniesController < ApplicationController
 
     def new
         @company = Company.new
-        @users = User.order(:last_name)
     end
 
     def create
-        @users = User.order(:last_name)
         @company = Company.new(company_params)
         if @company.save
             redirect_to @company
@@ -28,15 +27,27 @@ class CompaniesController < ApplicationController
     end
 
     def update
+        if @company.update(company_params)
+            redirect_to @company
+        else
+            flash.now[:errors] = @company.errors.full_messages
+            render action: 'edit'
+        end
     end
 
     def destroy
+        @company.destroy
+        redirect_to companies_path
     end
 
     private
 
     def set_company
         @company = Company.find(params[:id])
+    end
+
+    def set_users
+        @users = User.order(:last_name)
     end
 
     def company_params
