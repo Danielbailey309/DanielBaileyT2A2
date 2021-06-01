@@ -22,6 +22,12 @@
         <span><%= link_to "Users", users_path %></span>
       </nav>
     </header>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <% if flash[:errors] %>
       <section class="errors">
         <p class="name">The following errors occurred:</p>
