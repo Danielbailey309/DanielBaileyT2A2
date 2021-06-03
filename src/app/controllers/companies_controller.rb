@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
-    before_action :authenticate_member!, except: [:index, :show]
+    before_action :authenticate_member!
+    before_action :check_auth, except: [:index, :show]
     before_action :set_company, only: [:update, :show, :destroy, :edit]
     before_action :set_users, only: [:new, :edit, :create, :update]
 
@@ -45,6 +46,10 @@ class CompaniesController < ApplicationController
 
     def set_company
         @company = Company.find(params[:id])
+    end
+
+    def check_auth
+        authorize Company
     end
 
     def set_users
