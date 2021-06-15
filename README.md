@@ -7,7 +7,7 @@ This application allows entrepreneurs to put their business ideas up to be inves
 In Australia and around the world, there are many people with inventive ideas who would like to start their own companies to sell their ideas, but they lack the capital to do so.
 
 ## Deployed app link
-https://ca-whaletank.herokuapp.com/
+https://whaletank-2021.herokuapp.com/
 
 ## GitHub repository link
 https://github.com/Danielbailey309/DanielBaileyT2A2
